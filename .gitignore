@@ -3,3 +3,5 @@ node_modules
 
 # Dist folder for backend
 server
+client
+

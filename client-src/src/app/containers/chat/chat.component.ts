@@ -38,9 +38,8 @@ export class ChatComponent {
     }
 
     userNameUpdate(userName: string): void {
-        this.connectToServer();
         this.userName = userName;
-
+        this.connectToServer();
     }
 
 

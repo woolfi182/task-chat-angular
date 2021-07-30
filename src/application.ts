@@ -33,7 +33,7 @@ export class App {
         }
 
         this.app.get('/', async (req: express.Request, res: express.Response) => res.sendFile(resolve("./client/index.html")));
-
+        this.app.get(/.*\.(js|css|ico|txt)/, async (req: express.Request, res: express.Response) => res.sendFile(resolve(`./client${req.path}`)));
         this.app.use(createErrorHandlerMiddleware(options))
 
         this.io.on("connection", (socket: socketio.Socket) => {
