@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "declaration": false,
+    "esModuleInterop": true,
+    "lib": ["es2019"],
+    "module": "commonjs",
+    "sourceMap": true,
+    "strict": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "ES2019",
+    "outDir": "server"
+  },
+  "include": ["src"]
+}

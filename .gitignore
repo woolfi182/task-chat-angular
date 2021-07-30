@@ -1,1 +1,5 @@
-node_modues
+node_modules
+.vscode
+
+# Dist folder for backend
+server
