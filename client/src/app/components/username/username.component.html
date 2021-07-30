@@ -1,0 +1,7 @@
+<div class="container">
+  <mat-form-field (keyup.enter)="setUserName()">
+    <mat-label>Your username</mat-label>
+    <input matInput autofocus [(ngModel)]="userName">
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="setUserName()">Set</button>
+</div>

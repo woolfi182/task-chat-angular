@@ -1,0 +1,43 @@
+<mat-drawer-container class="container" *ngIf="userName">
+    <mat-drawer mode="side" class="nav-menu" opened>
+        <h1>Chat App</h1>
+
+
+        <h2>Users</h2>
+        <ul class="user-list">
+            <li class="user-list__user" *ngFor="let user of userList" (dblclick)="choseUser(user)">{{user}}</li>
+        </ul>
+
+
+    </mat-drawer>
+    <mat-drawer-content class="content">
+
+
+        <div class="messages-list">
+
+            <div class="messages-list__item" *ngFor="let msg of messageList" [ngClass]="{mine: msg.mine}">
+                <mat-card class="message-item">
+                    <h3 class="message-item__name">{{msg.userName}} wrote:</h3>
+                    <p class="message-item__message">{{msg.message}}</p>
+                </mat-card>
+            </div>
+
+            <div class="no-messages" *ngIf="!messageList.length">
+                No messages here!
+                Start chatting
+            </div>
+
+        </div>
+
+
+        <div class="chatbox">
+            <input class="chatbox__input" type="text" [(ngModel)]="message" (keyup.enter)="sendMessage()">
+            <button mat-raised-button color="primary" (click)="sendMessage()">Send Message</button>
+        </div>
+
+
+    </mat-drawer-content>
+</mat-drawer-container>
+
+
+<app-username (userNameEvent)="userNameUpdate($event)" *ngIf="!userName"></app-username>

@@ -40,9 +40,8 @@ export class App {
             const userName = socket.handshake.query.userName as string;
             this.userDB.addUser(userName, socket.id);
 
-            const usersList = this.userDB.getAll()
-            socket.broadcast.emit('user-list', usersList);
-            socket.emit('user-list', usersList)
+            socket.broadcast.emit('user-list', this.userDB.getAll());
+            socket.emit('user-list', this.userDB.getAll())
 
             socket.on('message', (message: string) => {
                 socket.broadcast.emit('message-broadcast', { message, userName });
